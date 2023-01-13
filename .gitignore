@@ -1,0 +1,13 @@
+#ignoring specific files:
+*.iml
+*.class
+*.jar
+*.war
+
+#ignoring specific folders:
+bin/i
+target/
+logs/
+out/
+
+.classpath
