@@ -3,16 +3,16 @@ package edu.home.test;
 /**
  * Класс с методами для определения оператора и парсинга операндов арифм. операции
  *
- * @author Evgeny Gumennikov
+ * @author Evgeny Humennikov
  * @version 1.0
  */
 
-public class Parse {
-
+class Parse {
     //определение оператора арифметической операции
-    public static char findMathSymbol(String input) {
-        char symbol = 0;
+    static char findMathSymbol(String input) {
 
+        char symbol = 0;
+        input = input.replaceAll(" ", "");
         for (int i = 0; i < input.length(); i++) {
             if (!Character.isDigit(input.charAt(i))) {
                 symbol = input.charAt(i);
@@ -21,25 +21,15 @@ public class Parse {
         return symbol;
     }
 
-     //получение левого операнда
-    public static int getLeftNumber(String input) {
-        int position = 0;
-        for (int i = 0; i < input.length(); i++) {
-            if (!Character.isDigit(input.charAt(i))) {
-                position = input.indexOf(input.charAt(i));
-            }
-        }
-        return Integer.parseInt(input.substring(0, position));
+    //получение левого операнда
+    static int getLeftNumber(String input) {
+        String[] line = input.split(" ");
+        return Integer.parseInt(line[0]);
     }
 
     //получение правого операнда
-    public static int getRightNumber(String input) {
-        int position = 0;
-        for (int i = 0; i < input.length(); i++) {
-            if (!Character.isDigit(input.charAt(i))) {
-                position = input.indexOf(input.charAt(i));
-            }
-        }
-        return Integer.parseInt(input.substring(position + 1));
+    static int getRightNumber(String input) {
+        String[] line = input.split(" ");
+        return Integer.parseInt(line[2]);
     }
 }
